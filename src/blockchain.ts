@@ -179,7 +179,9 @@ export class Blockchain {
   }
 
   createGenesisBlock(): Block {
-    return new Block(Date.parse('2021-01-01'), [], '0');
+    const genesisBlock: Block = new Block(Date.parse('2021-01-01'), [], '0')
+    genesisBlock.hash = genesisBlock.calculateHash()
+    return genesisBlock
   }
 
   getLatestBlock(): Block {
